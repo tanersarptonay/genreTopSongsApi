@@ -5,6 +5,7 @@ import com.example.genreTopSongsApi.model.TracksResponse;
 import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -21,6 +22,7 @@ public class SongService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Cacheable("songSearchCache")
     public List<Song> searchSong(String tag) {
         UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(BASE_URL)
                 .queryParam("method", "tag.gettoptracks")
@@ -29,10 +31,10 @@ public class SongService {
                 .queryParam("format", "json");
 
         TracksResponse response = restTemplate.getForObject(builder.build().toUri(), TracksResponse.class);
-
+        assert response != null;
         List<Song> track = response.getTracks().getTrack();
-        track.forEach(song -> log.info("song: " + song));
 
+        log.info("Found " + track.size() + " songs for tag " + tag);
         return track;
     }
 }

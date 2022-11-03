@@ -7,8 +7,6 @@ import java.util.List;
 
 @Data
 public class Track {
-
-
     @JsonProperty("track")
     private List<Song> track;
 }

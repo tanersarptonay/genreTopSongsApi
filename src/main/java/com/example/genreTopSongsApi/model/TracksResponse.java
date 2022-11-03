@@ -5,7 +5,6 @@ import lombok.Data;
 
 @Data
 public class TracksResponse {
-
     @JsonProperty("tracks")
     private Track tracks;
 }
