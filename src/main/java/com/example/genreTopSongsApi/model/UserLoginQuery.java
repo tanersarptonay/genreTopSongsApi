@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Artist {
-    private String name;
-    private String url;
+public class UserLoginQuery {
+    private String userName;
+    private String password;
 }
