@@ -6,10 +6,10 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.Optional;
 
 public interface UserRepository extends MongoRepository<User, String> {
-    Optional<User> findUserByUserName(String username);
+    Optional<User> findUserByUserName(String userName);
 
     Boolean existsByUserName(String userName);
 
-    Void deleteUserByUserName(String userName);
+    Long deleteUserByUserName(String userName);
 }
 

@@ -36,4 +36,8 @@ public class Song {
         }
         this.extraData.put(key, data);
     }
+
+    public String getName() {
+        return name;
+    }
 }

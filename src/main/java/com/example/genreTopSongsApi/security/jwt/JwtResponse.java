@@ -1,18 +1,18 @@
-package com.example.genreTopSongsApi.model;
+package com.example.genreTopSongsApi.security.jwt;
 
+import com.example.genreTopSongsApi.model.FavouriteSong;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
-public class UserRegisterQuery {
+public class JwtResponse {
+    private String jwt;
     private String userName;
-    private String password;
     private String name;
     private String lastName;
     private List<String> roles;
+    private List<FavouriteSong> favouriteSongs;
 }
