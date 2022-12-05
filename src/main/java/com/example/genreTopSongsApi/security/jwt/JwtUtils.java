@@ -32,7 +32,7 @@ public class JwtUtils {
         return Jwts.builder()
                 .setSubject((userPrincipal.getUsername()))
                 .setIssuedAt(Date.from(Instant.now().truncatedTo(ChronoUnit.MILLIS)))
-                .setExpiration(Date.from(Instant.now().truncatedTo(ChronoUnit.MILLIS).plus(100*86400000, ChronoUnit.MILLIS)))
+                .setExpiration(Date.from(Instant.now().truncatedTo(ChronoUnit.MILLIS).plus(Integer.parseInt(jwtExpirationMs), ChronoUnit.MILLIS)))
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
                 .compact();
     }
