@@ -29,7 +29,7 @@ public class SongService {
     @Cacheable("songSearchCache")
     public List<Song> searchSong(String tag) {
         UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(BASE_URL)
-                .queryParam("method", "tag.gettoptracks")
+                .queryParam("method", "tag.gettoptracks" + "")
                 .queryParam("tag", tag)
                 .queryParam("api_key", API_KEY)
                 .queryParam("format", "json");
