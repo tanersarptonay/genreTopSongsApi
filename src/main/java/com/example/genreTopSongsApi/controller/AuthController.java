@@ -70,7 +70,6 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody UserRegisterQuery userRegisterQuery) {
-        log.info("ZOOOOOOORT");
         if (userRepository.existsByUserName(userRegisterQuery.getUserName())) {
 
             return ResponseEntity
